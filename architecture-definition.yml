@@ -1,0 +1,40 @@
+dir-app:
+  dir-http:
+    - dir-resource:
+        dir-dto:
+        controller:
+    - dir-users:
+        dir-dto:
+          - 'keeps the in/out ports with request and response sufix'
+          - 'ex: create-user.request.ts'
+        controller:
+          - 'file containing all the application logics and error throws'
+  dir-graphql:
+    dir-resolvers:
+      - dir-users:
+          dir-inputs: 'code-first inputs'
+          dir-args: 'code-first args'
+          resolver: 'user resolver containing data resolving logic'
+      - dir-resources:
+          dir-inputs: 'code-first inputs'
+          dir-args: 'code-first args'
+          resolver: 'resource resolver containing data resolving logic'
+  module: 'exports the module and keeps only what is necessary at this directories'
+dir-domain:
+  dir-entities:
+    - dir-vo:
+      - size
+      - role
+    - user.ts -> resource[], role
+    - resource.ts -> size[]
+  dir-services:
+    - users:
+      - users.service.ts
+    - resources:
+      - resources.service.ts
+  module: 'exports the module and keeps only what is necessary at this directories'
+dir-infra:
+  dir-storage:
+    - dir-providers:
+      - storage.ts
+  module: 'exports the module and keeps only what is necessary at this directories'
